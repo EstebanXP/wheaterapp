@@ -1,0 +1,24 @@
+#Dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+input#Dark {
+  color: #fff;
+}
+
+button#Dark {
+  color: #fff;
+}
+
+#Light {
+  background-color: #fff;
+  color: #121212;
+}
+
+input,
+select,
+textarea #Light {
+  color: #fff;
+  color: black;
+}
