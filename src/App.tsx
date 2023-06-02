@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App" id={contextTheme}>
       <Switch onClick={onChangeTheme} />
-      <h1>Hola mundo</h1>
+      <h1>Welcome to ultime weather app!</h1>
       <Weather location={location}></Weather>
     </div>
   );

@@ -3,7 +3,7 @@ import "../Css/GeneralCss.css";
 import { getCityWeatherByCoords, getCityWeatherByName } from "../Functions";
 import WeatherDescription from "../Components/WeatherDescription";
 import WeatherDescriptionComp from "../Components/WeatherDescriptionComp";
-import { Coordinates } from "../Custom/CustomInterfaces";
+import { Coordinates, WeatherInterface } from "../Custom/CustomInterfaces";
 
 //import { getCityWeather } from "../functions";
 
@@ -13,18 +13,31 @@ interface Props {
 
 const Weather = ({ location }: Props) => {
   const [city, setCity] = useState<string>("");
-  const [data, setData] = useState<any>(undefined);
+  const [flag, setFlag] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [localData, setLocalData] = useState<WeatherInterface>();
+  const [searchCityData, setSearchCityData] = useState<WeatherInterface>();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
 
   const callData = async () => {
-    const weatherData = await getCityWeatherByName(city);
-    setData(weatherData);
+    setLoading(true);
+    setFlag(false);
+    try {
+      const weatherData = await getCityWeatherByName(city);
+      setLoading(false);
+      setSearchCityData(weatherData);
+    } catch (err) {
+      setLoading(false);
+      console.log("BALIO V");
+    }
   };
 
   const callLocationData = async (location: Coordinates) => {
+    setFlag(false);
+    setLoading(true);
     const { lat, lon } = location;
     if (lat !== 0 && lon !== 0) {
       try {
@@ -32,8 +45,10 @@ const Weather = ({ location }: Props) => {
           location.lon,
           location.lat
         );
-        setData(locationData);
+        setLoading(false);
+        setLocalData(locationData);
       } catch (error) {
+        setLoading(false);
         console.log("BALIO V");
       }
     }
@@ -45,11 +60,10 @@ const Weather = ({ location }: Props) => {
 
   return (
     <div>
-      <h1>Welcome to ultime weather app!</h1>
       <input onChange={(e) => handleChange(e)}></input>
-      <button onClick={() => callData()}>sadasd</button>
+      {/*<button onClick={() => callData()}>sadasd</button>*/}
       <div>
-        <p>{data && data?.name}</p>
+        <p>{localData && localData.name}</p>
       </div>
     </div>
   );
