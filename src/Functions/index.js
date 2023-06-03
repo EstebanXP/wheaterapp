@@ -8,7 +8,8 @@ export async function getCityWeatherByName(cityName) {
     });
     return response.data;
   } catch (error) {
-    return error;
+    console.log(error)
+    return undefined;
   }
 }
 
@@ -19,7 +20,8 @@ export async function getCityWeatherByCoords(long, lat) {
     });
     return response.data;
   } catch (error) {
-    return error;
+    console.log(error)
+    return undefined;
   }
 }
 

@@ -14,11 +14,11 @@ export interface Wind {
 }
 
 export interface sys {
-  type: number;
-  id: number;
-  country: string;
-  sunrise: number;
-  sunset: number;
+  type?: number;
+  id?: number;
+  country?: string;
+  sunrise?: number;
+  sunset?: number;
 }
 
 export interface MainWeatherData {

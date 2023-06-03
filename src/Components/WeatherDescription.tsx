@@ -16,29 +16,33 @@ const WeatherDescription = ({ ambient }: Props) => {
     console.log(ambient, "COMP");
   }, [ambient]);
 
+  if(ambient===undefined) {
+    return null; // Return null to avoid rendering the component
+  }
+
   //https://openweathermap.org/img/wn/10d@2x.png kelvinToCelsius ``
 
   return (
     <div>
       <ShowMainWeatherData
         name={ambient?.name}
-        country={ambient?.sys.country}
-        actualCelsiusTemperature={kelvinToCelsius(ambient?.main.temp)}
-        feelsLike={kelvinToCelsius(ambient?.main.feels_like)}
-        minCelsiusTemperature={kelvinToCelsius(ambient?.main.temp_min)}
-        maxCelsiusTemperature={kelvinToCelsius(ambient?.main.temp_max)}
-        weatherDescription= {ambient?.weather[0]?.description}
-        imageUrl={`https://openweathermap.org/img/wn/${ambient?.weather[0]?.icon}@2x.png`}
+        country={ambient?.sys?.country}
+        actualCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp)}
+        feelsLike={kelvinToCelsius(ambient?.main?.feels_like)}
+        minCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp_min)}
+        maxCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp_max)}
+        weatherDescription={ambient?.weather?.[0]?.description}
+        imageUrl={`https://openweathermap.org/img/wn/${ambient?.weather?.[0]?.icon}@2x.png`}
       >
         <img
-          src={`https://openweathermap.org/img/wn/${ambient?.weather[0]?.icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${ambient?.weather?.[0]?.icon}@2x.png`}
         ></img>
       </ShowMainWeatherData>
 
       <ShowSunData
         description="Sunrise"
         noon="AM"
-        time={secondsToDate(ambient?.sys.sunrise)}
+        time={secondsToDate(ambient?.sys?.sunrise)}
       >
         <ArrowUpwardIcon />
       </ShowSunData>
@@ -46,7 +50,7 @@ const WeatherDescription = ({ ambient }: Props) => {
       <ShowSunData
         description="Sunset"
         noon="PM"
-        time={secondsToDate(ambient?.sys.sunset)}
+        time={secondsToDate(ambient?.sys?.sunset)}
       >
         <ArrowDownwardIcon />
       </ShowSunData>
