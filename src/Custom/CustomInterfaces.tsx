@@ -1,5 +1,12 @@
 export const data = {};
 
+export interface WeatherArrayData {
+  description: string,
+  icon: string,
+  id: number,
+  main: string
+}
+
 export interface Wind {
   speed: number;
   deg: number;
@@ -7,11 +14,11 @@ export interface Wind {
 }
 
 export interface sys {
-  type: number;
-  id: number;
-  country: string;
-  sunrise: number;
-  sunset: number;
+  type?: number;
+  id?: number;
+  country?: string;
+  sunrise?: number;
+  sunset?: number;
 }
 
 export interface MainWeatherData {
@@ -44,7 +51,7 @@ export interface WeatherInterface {
   sys: sys;
   timezone: number;
   visibility: number;
-  weather: [];
+  weather: WeatherArrayData[];
   wind: Wind;
 }
 

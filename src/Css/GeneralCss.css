@@ -1,6 +1,7 @@
 #Dark {
-  background-color: #121212;
+  background-color: #243447;
   color: #fff;
+  transition: 0.5s;
 }
 
 input#Dark {
@@ -14,11 +15,12 @@ button#Dark {
 #Light {
   background-color: #fff;
   color: #121212;
+  transition: 0.5s;
 }
 
-input,
+/*input,
 select,
 textarea #Light {
   color: #fff;
   color: black;
-}
+}*/

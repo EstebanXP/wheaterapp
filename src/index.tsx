@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ThemeContextProvider } from './Context/ThemeContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+//import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeContextProvider } from "./Context/ThemeContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./Views/Layout";
+import LocalWeather from "./Views/LocalWeather";
+import SearchWeather from "./Views/SearchWeather";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <ThemeContextProvider>
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout></Layout>}>
+            <Route path="/" element={<LocalWeather></LocalWeather>}></Route>
+            <Route path="/search" element={<SearchWeather></SearchWeather>}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ThemeContextProvider>
   </React.StrictMode>
 );

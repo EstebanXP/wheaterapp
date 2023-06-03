@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { apiLocationUrl } from "../Constants/apiConstants";
+import { apiLocationUrl, fetchState } from "../Constants/apiConstants";
 import { Coordinates } from "./CustomInterfaces";
 
 export const useLocalWeather = () => {
+  const [fetchApiState, setFetchApiState] = useState<string>(fetchState.DEFAULT)
   const [location, setLocation] = useState<Coordinates>({
     lat: 0,
     lon: 0
@@ -11,12 +12,14 @@ export const useLocalWeather = () => {
 
   const getUserLocation = async () => {
     try {
+      setFetchApiState(fetchState.LOADING)
       const {
         data: { latitude, longitude },
       } = await axios.get(apiLocationUrl);
+      setFetchApiState(fetchState.SUCCESS);
       setLocation({ lon: longitude, lat: latitude });
-      console.log(latitude, longitude);
     } catch (error) {
+      setFetchApiState(fetchState.ERROR);
       console.error(error);
     }
   };
@@ -25,5 +28,5 @@ export const useLocalWeather = () => {
     getUserLocation();
   }, []);
 
-  return [location];
+  return [location,fetchApiState] as const;
 };
