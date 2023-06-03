@@ -1,32 +1,147 @@
-
-
 .App {
   font: italic;
   min-height: 100vh;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
-#Dark {
-  background-color: #121212;
+.WeatherContainer {
+  display: flex;
+  align-items: center;
+
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+}
+
+.searchCityForm{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.MainWeatherComponent {
+  margin-left: 15%;
+  margin-right: 15%;
+  /*
+  max-width: 50vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;*/
+}
+
+/*
+  DARK THEME CSS 
+*/
+
+/*#Dark {
+  background-color: #243447;
+  color: #fff;
+  transition: 0.5s;
+}*/
+
+#Dark button {
+  border: 1px solid #fff;
   color: #fff;
   transition: 0.5s;
 }
 
-#Dark button{
-  background-color: #121212;
+#Dark input {
+  /*background-color: #121212;*/
   color: #fff;
   transition: 0.5s;
+}
+
+/*  .MuiInput-underline:before*/
+#Dark .MuiInput-underline:after,
+#Dark .MuiInput-underline:before {
+  border-bottom: 2px solid white !important;
+}
+/*#Dark .MuiInput-underline:before,
+#Dark .MuiInput-underline:after{
+  border-bottom: red;
+}*/
+
+#Dark .input__label{
+  /*background-color: #121212;*/
+  color: #fff !important;
+  transition: 0.5s;
+}
+
+#Dark .dialogModal{
+  background-color: #141d26;
+}
+
+#Dark .searchLabel{
+  /*background-color: #121212;*/
+  border: 1px solid #fff;
+  color: #fff !important;
+  transition: 0.5s;
+}
+
+
+/*searchButton*/
+
+#Dark .MainWeatherComponent {
+  background-color: #141d26;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+}
+
+
+
+
+#Light button {
+  border: 1px solid #141d26;
+  color: #141d26;
+  transition: 0.5s;
+}
+
+#Light .MainWeatherComponent {
+  background-color: #E1E8ED;
+  border: 1px solid #141d26;
+  border-radius: 8px;
+  color: black;
+}
+
+
+
+#Light .input__label{
+  /*background-color: #121212;*/
+  color: black !important;
+  transition: 0.5s;
+}
+
+
+#Light .MuiInput-underline:after,
+#Light .MuiInput-underline:before {
+  border-bottom: 2px solid black !important;
+}
+/*#Dark .MainWeatherDescription {
+  background-color: #243447;
   
+
 }
+*/
+/*
+  LIGHT THEME CSS 
+*/
 
-#Dark input{
-  background-color: #121212;
-  color: #fff;
-  transition: 0.5s;
-}
-
-
-#Light {
+/*#Light {
   background-color: #fff;
   color: #121212;
   transition: 0.5s;
+}
+*/
+/*
+MEDIA QUERIES
+*/
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
 }
