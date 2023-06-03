@@ -1,6 +1,6 @@
 import React from "react";
 import "../../App.css";
-import { Box, Card, CardContent, CardMedia } from "@mui/material";
+import { Box, Card, CardContent } from "@mui/material";
 
 interface Props {
   name?: string;

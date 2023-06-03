@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
 const SearchWeatherForm = () => {
@@ -20,6 +20,9 @@ const SearchWeatherForm = () => {
         aria-labelledby="customized-dialog-title"
         className="genericModal"
         open={openModal}
+        PaperProps={{
+            className: "dialogModal"
+        }}
       >
         <DialogTitle>
           <IconButton onClick={handleClose}>

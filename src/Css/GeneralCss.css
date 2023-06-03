@@ -18,6 +18,34 @@ button#Dark {
   transition: 0.5s;
 }
 
+.CardsContainer {
+  /*column-count: 2;
+
+
+  
+  padding: 0;
+  /*margin: 0 15% 0 0;
+  
+  padding: 0 15% 0 15%;
+  */
+  /* margin-right: 15%;*/
+  /*scolumn-gap: 1vw;  Optional: Set the gap between columns */
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
 /*input,
 select,
 textarea #Light {

@@ -8,9 +8,6 @@ import WeatherDescription from "../../Components/WeatherDescription";
 const returnSavedData = () => {
   const storedItems = JSON.parse(localStorage.getItem("lastItems") || "[]");
   return storedItems;
-  /*if(storedItems?.length !== 0){
-    return JSON.parse(storedItems)
-  }*/
 };
 
 const SearchWeather = () => {
@@ -21,11 +18,16 @@ const SearchWeather = () => {
   const [localQueue, setLocalQueue] = useState<WeatherInterface[]>(
     returnSavedData() || []
   );
-  const [auxLocalQueue, setAuxLocalQueue] = useState<Array<any>>([]);
   const [searchCityData, setSearchCityData] = useState<
     WeatherInterface | undefined
   >();
+
+  const [seeSearch, setSeeSearch] = useState<Boolean>(false);
   const [city, setCity] = useState<string>("");
+
+  const onClickButton = () => {
+    setSeeSearch((prev) => !prev);
+  };
 
   const enqueue = (item: WeatherInterface) => {
     setLocalQueue((prevQueue) => {
@@ -62,33 +64,59 @@ const SearchWeather = () => {
     localStorage.setItem("lastItems", JSON.stringify(localQueue));
   }, [localQueue]);
 
+  useEffect(() => {
+    console.log(localQueue);
+  }, [localQueue]);
+
   return (
     <div>
-      <form className="searchCityForm" onSubmit={(e) => callData(e)}>
-        <TextField
-          id="searchField"
-          label="City Name"
-          variant="standard"
-          onChange={handleChange}
-          InputLabelProps={{ className: "input__label" }}
-          InputProps={{ className: "input__style" }}
-        />
-
-        <Button type="submit" variant="outlined" className="searchButton">
-          Search
+      {/* <button onClick={deleteData}>Borrar</button>*/}
+      {localQueue.length > 0 && (
+        <Button
+          type="button"
+          variant="outlined"
+          className="searchButton"
+          onClick={onClickButton}
+        >
+          {seeSearch ? " Search New City" : "Watch Last City"}
         </Button>
-      </form>
-
-      {fetchApiState === fetchState.LOADING && <p>LOADING LOCAL DATA</p>}
-      {fetchApiState === fetchState.ERROR && searchCityData === undefined && (
-        <p>ERROR LOADING SEARCHED CITY DATA</p>
       )}
-      {fetchApiState === fetchState.SUCCESS && (
-        <WeatherDescription ambient={searchCityData}></WeatherDescription>
+      {seeSearch ? (
+        <div>
+          <br></br>
+          <WeatherDescription ambient={localQueue[0]}></WeatherDescription>
+        </div>
+      ) : (
+        <div>
+          <form className="searchCityForm" onSubmit={(e) => callData(e)}>
+            <TextField
+              id="searchField"
+              label="City Name"
+              variant="standard"
+              onChange={handleChange}
+              InputLabelProps={{ className: "input__label" }}
+              InputProps={{ className: "input__style" }}
+            />
+
+            <Button type="submit" variant="outlined" className="searchButton">
+              Search
+            </Button>
+          </form>
+
+          {fetchApiState === fetchState.LOADING && <p>LOADING LOCAL DATA</p>}
+          {fetchApiState === fetchState.ERROR && (
+            <p>ERROR LOADING SEARCHED CITY DATA</p>
+          )}
+          {fetchApiState === fetchState.SUCCESS && (
+            <div style={{ width: "100%"}}>
+              <br></br>
+              <WeatherDescription ambient={searchCityData}></WeatherDescription>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
 };
 
 export default SearchWeather;
-//  {/* <WeatherDescription ambient={searchCityData}></WeatherDescription>*/}
