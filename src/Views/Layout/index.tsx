@@ -1,8 +1,10 @@
 import { useThemeContext } from "../../Context/ThemeContext";
-import { Switch } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import "../../App.css";
-import { Outlet, Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "../../../src/Css/GeneralCss.css";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import Brightness2Icon from "@mui/icons-material/Brightness2";
 
 const Layout = () => {
   const { contextTheme, setContextTheme } = useThemeContext();
@@ -13,9 +15,16 @@ const Layout = () => {
   return (
     <div className="App" id={contextTheme}>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/search">Search</Link>
-        <Switch onClick={onChangeTheme} />
+        <Button variant="text" component={Link} to={"/"} className="searchButton" id={contextTheme}>
+          Home
+        </Button>
+        <Button component={Link} to={"/search"} className="searchButton" id={contextTheme} >
+          Search
+        </Button>
+
+        <IconButton onClick={onChangeTheme}>
+          {contextTheme === "Dark" ? <WbSunnyIcon /> : <Brightness2Icon />}
+        </IconButton>
       </nav>
       <h1>Welcome to Ultimate Weather App!</h1>
 
