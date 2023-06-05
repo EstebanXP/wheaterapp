@@ -1,23 +1,38 @@
+/**
+ * Styles for the Dark theme.
+ */
 #Dark {
   background-color: #121212;
   color: #fff;
   transition: 0.5s;
 }
 
+/**
+ * Styles for input elements in the Dark theme.
+ */
+
 input#Dark {
   color: #fff;
 }
 
+/**
+ * Styles for button elements in the Dark theme.
+ */
 button#Dark {
   color: #fff;
 }
 
+/**
+ * Styles for the Light theme.
+ */
 #Light {
   background-color: #fff;
   color: #121212;
   transition: 0.5s;
 }
-
+/**
+ * Styles for a row container.
+ */
 
 .Row {
   display: flex;
@@ -27,6 +42,10 @@ button#Dark {
   margin-bottom: 1vh;
 }
 
+/**
+ * Styles for a column container.
+ */
+
 .Column {
   display: flex;
   flex-direction: column;
@@ -35,4 +54,3 @@ button#Dark {
   flex-basis: 100%;
   flex: 1;
 }
-

@@ -6,8 +6,17 @@ import "../../../src/Css/GeneralCss.css";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import Brightness2Icon from "@mui/icons-material/Brightness2";
 
+/**
+ * Represents the layout component of the application.
+ * Renders the navigation bar, theme toggle button, and content.
+ */
+
 const Layout = () => {
   const { contextTheme, setContextTheme } = useThemeContext();
+
+  /**
+   * Toggles the theme between "Dark" and "Light" mode.
+   */
 
   const onChangeTheme = () => {
     setContextTheme((prev: string) => (prev === "Dark" ? "Light" : "Dark"));
@@ -15,10 +24,21 @@ const Layout = () => {
   return (
     <div className="App" id={contextTheme}>
       <nav>
-        <Button variant="text" component={Link} to={"/"} className="searchButton" id={contextTheme}>
+        <Button
+          variant="text"
+          component={Link}
+          to={"/"}
+          className="searchButton"
+          id={contextTheme}
+        >
           Home
         </Button>
-        <Button component={Link} to={"/search"} className="searchButton" id={contextTheme} >
+        <Button
+          component={Link}
+          to={"/search"}
+          className="searchButton"
+          id={contextTheme}
+        >
           Search
         </Button>
 

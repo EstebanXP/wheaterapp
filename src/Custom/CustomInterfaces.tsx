@@ -1,17 +1,30 @@
+/**
+ * Data object.
+ */
 export const data = {};
 
+/**
+ * Represents the weather array data.
+ */
 export interface WeatherArrayData {
-  description: string,
-  icon: string,
-  id: number,
-  main: string
+  description: string;
+  icon: string;
+  id: number;
+  main: string;
 }
 
+/**
+ * Represents the wind data.
+ */
 export interface Wind {
   speed: number;
   deg: number;
   gust: number;
 }
+
+/**
+ * Represents the sys data.
+ */
 
 export interface sys {
   type?: number;
@@ -21,6 +34,9 @@ export interface sys {
   sunset?: number;
 }
 
+/**
+ * Represents the main weather data.
+ */
 export interface MainWeatherData {
   temp: number;
   feels_like: number;
@@ -28,14 +44,20 @@ export interface MainWeatherData {
   temp_max: number;
   pressure: number;
   sea_level: number;
-  humidity: number
+  humidity: number;
 }
 
+/**
+ * Represents the coordinates data.
+ */
 export interface Coordinates {
   lat: number;
   lon: number;
 }
 
+/**
+ * Represents the weather interface.
+ */
 export interface WeatherInterface {
   base: string;
   clouds: {
@@ -55,5 +77,3 @@ export interface WeatherInterface {
   weather: WeatherArrayData[];
   wind: Wind;
 }
-
-

@@ -14,11 +14,17 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    {/* Provide the theme context */}
     <ThemeContextProvider>
+      {/* Set up the BrowserRouter for routing */}
       <BrowserRouter>
         <Routes>
+          {/* Set up the routes */}
           <Route path="/" element={<Layout></Layout>}>
+            {/* Define the route for the home page */}
             <Route path="/" element={<LocalWeather></LocalWeather>}></Route>
+            
+            {/* Define the route for the search page */}
             <Route path="/search" element={<SearchWeather></SearchWeather>}></Route>
           </Route>
         </Routes>
