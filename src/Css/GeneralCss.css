@@ -1,5 +1,5 @@
 #Dark {
-  background-color: #243447;
+  background-color: #121212;
   color: #fff;
   transition: 0.5s;
 }
@@ -24,11 +24,14 @@ button#Dark {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 1vh;
 }
 
 .Column {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
   flex-basis: 100%;
   flex: 1;
 }

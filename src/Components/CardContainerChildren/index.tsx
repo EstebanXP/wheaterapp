@@ -8,8 +8,8 @@ interface Props {
 const CardContainerChildren = ({ children }: Props) => {
   return (
     <div>
-      <Card className="CardComponent">
-        <Box /*className="MainWeatherDescription"*/>{children}</Box>
+      <Card className="CardComponent" sx={{width: "30vw"}}>
+        <Box className="MainWeatherDescription" sx={{display: "flex", alignItems: "center", justifyContent: "center"}}>{children}</Box>
       </Card>
     </div>
   );
