@@ -22,7 +22,7 @@ const LocalWeather = () => {
         setLocalData(locationData);
       } catch (error) {
         setLocalData(undefined);
-        console.log("BALIO V");
+        console.error(error);
       }
     }
   };

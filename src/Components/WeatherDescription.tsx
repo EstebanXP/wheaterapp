@@ -49,6 +49,7 @@ const WeatherDescription = ({ ambient }: Props) => {
           ></img>
         </ShowMainWeatherData>
       </section>
+      <br></br>
       <section className="CardsContainer">
         <section className="Row">
           <section className="Column">

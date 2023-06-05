@@ -66,7 +66,7 @@ const SearchWeather = () => {
   }, [localQueue]);
 
   useEffect(() => {
-    console.log(localQueue);
+    //console.log(localQueue);
   }, [localQueue]);
 
   return (
