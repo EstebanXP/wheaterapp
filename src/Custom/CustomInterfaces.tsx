@@ -28,6 +28,7 @@ export interface MainWeatherData {
   temp_max: number;
   pressure: number;
   sea_level: number;
+  humidity: number
 }
 
 export interface Coordinates {

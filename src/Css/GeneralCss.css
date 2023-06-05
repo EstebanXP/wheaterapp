@@ -18,9 +18,18 @@ button#Dark {
   transition: 0.5s;
 }
 
-/*input,
-select,
-textarea #Light {
-  color: #fff;
-  color: black;
-}*/
+
+.Row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
