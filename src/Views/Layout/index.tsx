@@ -17,13 +17,15 @@ const Layout = () => {
         <Link to="/search">Search</Link>
         <Switch onClick={onChangeTheme} />
       </nav>
-      <br></br>
-     
-
-      <br></br>
       <h1>Welcome to Ultimate Weather App!</h1>
 
-      <section style={{ marginLeft: "15%", marginRight: "15%", justifyContent: "space-between"}}>
+      <section
+        style={{
+          marginLeft: "15%",
+          marginRight: "15%",
+          justifyContent: "space-between",
+        }}
+      >
         <Outlet></Outlet>
       </section>
     </div>

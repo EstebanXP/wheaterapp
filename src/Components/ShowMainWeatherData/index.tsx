@@ -1,11 +1,14 @@
 import React from "react";
 import "../../App.css";
 import { Box, Card, CardContent } from "@mui/material";
+import { Coordinates } from "../../Custom/CustomInterfaces";
+import Map from "../Map";
 
 interface Props {
   name?: string;
   country?: string;
   children: React.ReactNode;
+  coords: Coordinates,
   actualCelsiusTemperature?: number;
   feelsLike?: number;
   minCelsiusTemperature?: number;
@@ -18,6 +21,7 @@ interface Props {
 
 const ShowMainWeatherData = ({
   name,
+  coords,
   country,
   children,
   actualCelsiusTemperature,
@@ -27,13 +31,12 @@ const ShowMainWeatherData = ({
   weatherDescription,
 }: Props) => {
   return (
-    <div>
+    <div className="MainWeatherComponentContainer">
       <Card className="MainWeatherComponent">
         <Box
           className="MainWeatherDescription"
-          sx={{ display: "flex", flexDirection: "column", width: "100%" }}
         >
-          <CardContent >
+          <CardContent className="CardContentContainer">
             <p>
               {name} <b>{` ${country}  `}</b>
             </p>
@@ -41,10 +44,16 @@ const ShowMainWeatherData = ({
               <p>{weatherDescription}</p>
               {children}
             </section>
-            <section> {` ${actualCelsiusTemperature}°, Feels Like ${feelsLike}°  `}</section>
+            <section>
+              {" "}
+              {` ${actualCelsiusTemperature}°, Feels Like ${feelsLike}°  `}
+            </section>
             <section>
               {`  Min ${minCelsiusTemperature}° Max ${maxCelsiusTemperature}° `}
             </section>
+          </CardContent>
+          <CardContent className="CardSecondContentContainer" /*sx={{flex: 1}}*/>
+            <Map coords={coords}></Map>
           </CardContent>
         </Box>
       </Card>

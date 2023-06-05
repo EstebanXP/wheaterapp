@@ -8,7 +8,7 @@ import {
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ShowSunData from "./ShowSunData";
-import ShowMainWeatherData from "./ShowMainWeatherData.tsx";
+import ShowMainWeatherData from "./ShowMainWeatherData";
 import CardContainerChildren from "./CardContainerChildren";
 import WavesIcon from "@mui/icons-material/Waves";
 import ShowGeneralData from "./ShowGeneralData";
@@ -31,21 +31,24 @@ const WeatherDescription = ({ ambient }: Props) => {
 
   return (
     <div>
-      <ShowMainWeatherData
-        name={ambient?.name}
-        country={ambient?.sys?.country}
-        actualCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp)}
-        feelsLike={kelvinToCelsius(ambient?.main?.feels_like)}
-        minCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp_min)}
-        maxCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp_max)}
-        weatherDescription={ambient?.weather?.[0]?.description}
-        imageUrl={`https://openweathermap.org/img/wn/${ambient?.weather?.[0]?.icon}@2x.png`}
-      >
-        <img
-          src={`https://openweathermap.org/img/wn/${ambient?.weather?.[0]?.icon}@2x.png`}
-          alt={`${ambient?.weather?.[0]?.main}`}
-        ></img>
-      </ShowMainWeatherData>
+      <section className="MainDataContainer">
+        <ShowMainWeatherData
+          coords = {ambient.coord}
+          name={ambient?.name}
+          country={ambient?.sys?.country}
+          actualCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp)}
+          feelsLike={kelvinToCelsius(ambient?.main?.feels_like)}
+          minCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp_min)}
+          maxCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp_max)}
+          weatherDescription={ambient?.weather?.[0]?.description}
+          imageUrl={`https://openweathermap.org/img/wn/${ambient?.weather?.[0]?.icon}@2x.png`}
+        >
+          <img
+            src={`https://openweathermap.org/img/wn/${ambient?.weather?.[0]?.icon}@2x.png`}
+            alt={`${ambient?.weather?.[0]?.main}`}
+          ></img>
+        </ShowMainWeatherData>
+      </section>
       <section className="CardsContainer">
         <section className="Row">
           <section className="Column">
@@ -124,52 +127,3 @@ const WeatherDescription = ({ ambient }: Props) => {
 };
 
 export default WeatherDescription;
-
-/**
- * 
- * <section className="CardsContainer">
-        <CardContainerChildren>
-          <ShowSunData
-            description="Sunrise"
-            noon="AM"
-            time={secondsToDate(ambient?.sys?.sunrise)}
-          >
-            <ArrowUpwardIcon />
-          </ShowSunData>
-        </CardContainerChildren>
-
-        <CardContainerChildren>
-          <ShowSunData
-            description="Sunset"
-            noon="PM"
-            time={secondsToDate(ambient?.sys?.sunset)}
-          >
-            <ArrowDownwardIcon />
-          </ShowSunData>
-        </CardContainerChildren>
-        <br></br>
-
-        <CardContainerChildren>
-          <ShowSunData
-            description="Sunset"
-            noon="PM"
-            time={secondsToDate(ambient?.sys?.sunset)}
-          >
-            <ArrowDownwardIcon />
-          </ShowSunData>
-        </CardContainerChildren>
-
-        <CardContainerChildren>
-          <ShowSunData
-            description="Sunset"
-            noon="PM"
-            time={secondsToDate(ambient?.sys?.sunset)}
-          >
-            <ArrowDownwardIcon />
-          </ShowSunData>
-        </CardContainerChildren>
-
-        
-        
-      </section>
- */

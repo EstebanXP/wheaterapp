@@ -4,6 +4,7 @@ import { getCityWeatherByName } from "../../Functions";
 import { Button, TextField } from "@mui/material";
 import { fetchState } from "../../Constants/apiConstants";
 import WeatherDescription from "../../Components/WeatherDescription";
+import ErrorComponent from "../../Components/ErrorComponet";
 
 const returnSavedData = () => {
   const storedItems = JSON.parse(localStorage.getItem("lastItems") || "[]");
@@ -70,7 +71,6 @@ const SearchWeather = () => {
 
   return (
     <div>
-      {/* <button onClick={deleteData}>Borrar</button>*/}
       {localQueue.length > 0 && (
         <Button
           type="button"
@@ -105,10 +105,10 @@ const SearchWeather = () => {
 
           {fetchApiState === fetchState.LOADING && <p>LOADING LOCAL DATA</p>}
           {fetchApiState === fetchState.ERROR && (
-            <p>ERROR LOADING SEARCHED CITY DATA</p>
+            <ErrorComponent errorText="Error loading the city's data, please try again"></ErrorComponent>
           )}
           {fetchApiState === fetchState.SUCCESS && (
-            <div style={{ width: "100%"}}>
+            <div style={{ width: "100%" }}>
               <br></br>
               <WeatherDescription ambient={searchCityData}></WeatherDescription>
             </div>

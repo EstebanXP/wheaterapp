@@ -17,6 +17,7 @@ const ShowGeneralData = ({ children, description, title }: Props) => {
       }}
     >
       {` ${title} ${description} `}
+      {" "}
       {children}
     </div>
   );

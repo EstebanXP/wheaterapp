@@ -8,10 +8,6 @@
 .WeatherContainer {
   display: flex;
   align-items: center;
-
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
 }
 
 .searchCityForm {
@@ -22,13 +18,43 @@
   margin-right: 15%;
 }
 
-.MainWeatherComponent {
-  
-  /*
-  max-width: 50vw;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;*/
+.MainDataContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.MainWeatherDescription {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /*flexDirection: "row", width: "100%",*/
+}
+
+.MainWeatherComponentContainer {
+  flex: 2;
+}
+
+.googleMapContainer {
+  height: 40vh;
+  width: 100%;
+}
+
+.CardContentContainer {
+  flex: 2;
+  border: 1px solid black;
+}
+
+.CardSecondContentContainer {
+  flex: 1;
+}
+
+.MapContainer {
+  flex: 1;
+}
+
+.FlexContainer {
+  flex: 1;
 }
 
 .CardComponent {
@@ -40,12 +66,6 @@
   DARK THEME CSS 
 */
 
-/*#Dark {
-  background-color: #243447;
-  color: #fff;
-  transition: 0.5s;
-}*/
-
 #Dark button {
   border: 1px solid #fff;
   color: #fff;
@@ -53,23 +73,21 @@
 }
 
 #Dark input {
-  /*background-color: #121212;*/
   color: #fff;
   transition: 0.5s;
 }
 
-/*  .MuiInput-underline:before*/
+#Dark .CardContentContainer,
+#Dark .CardSecondContentContainer {
+  border: 1px solid white;
+}
+
 #Dark .MuiInput-underline:after,
 #Dark .MuiInput-underline:before {
   border-bottom: 2px solid white !important;
 }
-/*#Dark .MuiInput-underline:before,
-#Dark .MuiInput-underline:after{
-  border-bottom: red;
-}*/
 
 #Dark .input__label {
-  /*background-color: #121212;*/
   color: #fff !important;
   transition: 0.5s;
 }
@@ -79,13 +97,10 @@
 }
 
 #Dark .searchLabel {
-  /*background-color: #121212;*/
   border: 1px solid #fff;
   color: #fff !important;
   transition: 0.5s;
 }
-
-/*searchButton*/
 
 #Dark .MainWeatherComponent {
   background-color: #141d26;
@@ -122,37 +137,34 @@
 }
 
 #Light .input__label {
-  /*background-color: #121212;*/
   color: black !important;
   transition: 0.5s;
+}
+
+#Light .CardContentContainer {
+  flex: 2;
+  border: 1px solid #141d26;
+}
+
+#Light .CardSecondContentContainer {
+  border: 1px solid #141d26;
 }
 
 #Light .MuiInput-underline:after,
 #Light .MuiInput-underline:before {
   border-bottom: 2px solid black !important;
 }
-/*#Dark .MainWeatherDescription {
-  background-color: #243447;
-  
 
-}
-*/
 /*
   LIGHT THEME CSS 
 */
 
-/*#Light {
-  background-color: #fff;
-  color: #121212;
-  transition: 0.5s;
-}
-*/
 /*
 MEDIA QUERIES
 */
 
 @media (min-width: 768px) {
-}
-
-@media (min-width: 1024px) {
+  .MainWeatherDescription {
+    flex-direction: row;
+  }
 }

@@ -4,6 +4,7 @@ import { fetchState } from "../../Constants/apiConstants";
 import WeatherDescription from "../../Components/WeatherDescription";
 import { WeatherInterface, Coordinates } from "../../Custom/CustomInterfaces";
 import { getCityWeatherByCoords } from "../../Functions";
+import ErrorComponent from "../../Components/ErrorComponet";
 
 const LocalWeather = () => {
   const [location, fetchApiState] = useLocalWeather();
@@ -34,7 +35,7 @@ const LocalWeather = () => {
     <div>
       {fetchApiState === fetchState.LOADING && <p>LOADING LOCAL DATA</p>}
       {fetchApiState === fetchState.ERROR && (
-        <p>ERROR LOADING LOCAL WEATHER DATA</p>
+        <ErrorComponent errorText="Hello, we are having issues loading your local data, please try again! "></ErrorComponent>
       )}
       {fetchApiState === fetchState.SUCCESS && localData && (
         <WeatherDescription ambient={localData}></WeatherDescription>
