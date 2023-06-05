@@ -6,10 +6,20 @@ import { fetchState } from "../../Constants/apiConstants";
 import WeatherDescription from "../../Components/WeatherDescription";
 import ErrorComponent from "../../Components/ErrorComponet";
 
+/**
+ * Returns the saved weather data from local storage.
+ * @returns An array of saved weather data.
+ */
+
 const returnSavedData = () => {
   const storedItems = JSON.parse(localStorage.getItem("lastItems") || "[]");
   return storedItems;
 };
+
+/**
+ * Represents the component for searching and displaying weather information for a city.
+ * Allows users to search for a city by name and fetches and displays the weather data for that city.
+ */
 
 const SearchWeather = () => {
   const [fetchApiState, setFetchApiState] = useState<string>(
@@ -26,9 +36,18 @@ const SearchWeather = () => {
   const [seeSearch, setSeeSearch] = useState<Boolean>(false);
   const [city, setCity] = useState<string>("");
 
+  /**
+   * Toggles the view between the search form and the last searched city's weather.
+   */
   const onClickButton = () => {
     setSeeSearch((prev) => !prev);
   };
+
+  /**
+   * Enqueues the given weather data to the localQueue state.
+   * Removes the oldest item if the queue length exceeds 2.
+   * @param item - The weather data to enqueue.
+   */
 
   const enqueue = (item: WeatherInterface) => {
     setLocalQueue((prevQueue) => {
@@ -39,6 +58,12 @@ const SearchWeather = () => {
       return newQueue;
     });
   };
+
+  /**
+   * Calls the API to fetch weather data for the given city.
+   * Sets the searchCityData state with the fetched weather data.
+   * @param e - The form event.
+   */
 
   const callData = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,16 +82,24 @@ const SearchWeather = () => {
     }
   };
 
+  /**
+   * Handles the change event of the city input field.
+   * Updates the city state with the new value.
+   * @param e - The change event.
+   */
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
 
-  useEffect(() => {
-    localStorage.setItem("lastItems", JSON.stringify(localQueue));
-  }, [localQueue]);
+  /**
+   * Handles the change event of the localQueue data.
+   * Updates the localQueue data state with the new value.
+   * @param localQueue - The change event.
+   */
 
   useEffect(() => {
-    //console.log(localQueue);
+    localStorage.setItem("lastItems", JSON.stringify(localQueue));
   }, [localQueue]);
 
   return (

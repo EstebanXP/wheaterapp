@@ -1,15 +1,31 @@
+/*
+  App CSS
+  Description: Styles for the main application container.
+*/
 .App {
-  font: italic;
+  /*font: italic;
   min-height: 100vh;
   text-align: center;
+  font-family: "Poppins", sans-serif;*/
+  min-height: 100vh;
+  text-align: center;
+  font-family: "Inter", sans-serif;
   font-family: "Poppins", sans-serif;
 }
 
+/*
+  Weather Container CSS
+  Description: Styles for the weather container.
+*/
 .WeatherContainer {
   display: flex;
   align-items: center;
 }
 
+/*
+  Search City Form CSS
+  Description: Styles for the search city form.
+*/
 .searchCityForm {
   display: flex;
   flex-direction: column;
@@ -18,13 +34,21 @@
   margin-right: 15%;
 }
 
+/*
+  Main Data Container CSS
+  Description: Styles for the main data container.
+*/
+
 .MainDataContainer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-
+/*
+  Main Weather Description CSS
+  Description: Styles for the main weather description.
+*/
 
 .MainWeatherDescription {
   display: flex;
@@ -33,49 +57,85 @@
   justify-content: center;
   /*flexDirection: "row", width: "100%",*/
 }
-
+/*
+  Main Weather Description - Main Data CSS
+  Description: Styles for the main data section in the main weather description.
+*/
 .MainWeatherDescription #MainData {
   display: flex;
   flex-direction: column;
 }
 
+/*
+  Card Component - Main Weather Description Container CSS
+  Description: Styles for the main weather description container in the card component.
+*/
+
 .CardComponent #MainWeatherDescriptionContainer {
   width: 20vw;
 }
 
+/*
+  Main Weather Component Container CSS
+  Description: Styles for the main weather component container.
+*/
 .MainWeatherComponentContainer {
   flex: 2;
 }
+
+/*
+  Google Map Container CSS
+  Description: Styles for the Google Map container.
+*/
 
 .googleMapContainer {
   height: 40vh;
   width: 100%;
 }
 
+/*
+  Card Content Container CSS
+  Description: Styles for the card content container.
+*/
+
 .CardContentContainer {
   flex: 2;
   border: 1px solid black;
 }
-
+/*
+  Card Second Content Container CSS
+  Description: Styles for the second content container in the card component.
+*/
 .CardSecondContentContainer {
   flex: 1;
 }
-
+/*
+  Map Container CSS
+  Description: Styles for the map container.
+*/
 .MapContainer {
   flex: 1;
 }
-
+/*
+  Flex Container CSS
+  Description: Styles for the flex container.
+*/
 .FlexContainer {
   flex: 1;
 }
+
+/*
+  Card Component CSS
+  Description: Styles for the card component.
+*/
 
 .CardComponent {
   max-width: 30vw;
   width: 100%;
 }
-
 /*
-  DARK THEME CSS 
+  Dark Theme CSS
+  Description: Styles for the dark theme.
 */
 
 #Dark button {
@@ -142,7 +202,7 @@
 #Light .CardComponent {
   background-color: rgba(0, 0, 0, 0.04);
   border: 0px solid #141d26;
-  
+
   color: black;
 }
 
@@ -170,7 +230,8 @@
 */
 
 /*
-MEDIA QUERIES
+  Media Queries
+  Description: Styles for responsive layouts using media queries.
 */
 
 @media (min-width: 768px) {

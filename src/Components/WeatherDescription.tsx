@@ -17,12 +17,18 @@ import WindPowerIcon from "@mui/icons-material/WindPower";
 import WaterIcon from "@mui/icons-material/Water";
 
 interface Props {
+  /**
+   * The ambient weather data.
+   */
   ambient?: WeatherInterface;
 }
 
+/**
+ * Component that displays the weather description.
+ */
 const WeatherDescription = ({ ambient }: Props) => {
   useEffect(() => {
-    console.log(ambient);
+    //console.log(ambient);
   }, [ambient]);
 
   if (ambient === undefined) {
@@ -32,8 +38,11 @@ const WeatherDescription = ({ ambient }: Props) => {
   return (
     <div>
       <section className="MainDataContainer">
+        {/**
+         * Component that displays the main local weather data.
+         */}
         <ShowMainWeatherData
-          coords = {ambient.coord}
+          coords={ambient.coord}
           name={ambient?.name}
           country={ambient?.sys?.country}
           actualCelsiusTemperature={kelvinToCelsius(ambient?.main?.temp)}
@@ -50,6 +59,9 @@ const WeatherDescription = ({ ambient }: Props) => {
         </ShowMainWeatherData>
       </section>
       <br></br>
+      {/**
+       * Component that displays the secondary local weather data.
+       */}
       <section className="CardsContainer">
         <section className="Row">
           <section className="Column">

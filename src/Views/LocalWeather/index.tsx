@@ -6,10 +6,21 @@ import { WeatherInterface, Coordinates } from "../../Custom/CustomInterfaces";
 import { getCityWeatherByCoords } from "../../Functions";
 import ErrorComponent from "../../Components/ErrorComponet";
 
+/**
+ * Represents the component for displaying the local weather.
+ * Fetches and displays the weather data based on the user's location.
+ */
+
 const LocalWeather = () => {
   const [location, fetchApiState] = useLocalWeather();
 
   const [localData, setLocalData] = useState<WeatherInterface | undefined>();
+
+  /**
+   * Calls the API to fetch the weather data based on the given coordinates.
+   * Sets the localData state with the fetched weather data.
+   * @param location - The coordinates of the location.
+   */
 
   const callLocationData = async (location: Coordinates) => {
     const { lat, lon } = location;
